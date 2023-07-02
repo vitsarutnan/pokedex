@@ -1,19 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Base, Pokemon } from 'src/app/interfaces/pokemon';
 
-import '@refinitiv-ui/elements/layout';
+import '@refinitiv-ui/elements/pill';
+import '@refinitiv-ui/elements/slider';
+import '@refinitiv-ui/elements/item';
+import '@refinitiv-ui/elements/loader';
 
-import '@refinitiv-ui/elements/layout/themes/halo/light';
-
-import '@refinitiv-ui/halo-theme/light/imports/native-elements';
-import { Pokemon } from './interfaces/pokemon';
+import '@refinitiv-ui/elements/pill/themes/halo/light';
+import '@refinitiv-ui/elements/slider/themes/halo/light';
+import '@refinitiv-ui/elements/item/themes/halo/light';
+import '@refinitiv-ui/elements/loader/themes/halo/light';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-show-case',
+  templateUrl: './show-case.component.html',
+  styleUrls: ['./show-case.component.scss'],
 })
-export class AppComponent {
-  pokemon: Pokemon = {
+export class ShowCaseComponent {
+  @Input() pokemon: Pokemon = {
     id: 1,
     name: {
       english: 'Bulbasaur',
@@ -53,7 +57,12 @@ export class AppComponent {
     },
   };
 
-  setPokemon(pokemon: Pokemon) {
-    this.pokemon = pokemon;
-  }
+  maxBase: Base = {
+    Attack: 181,
+    Defense: 230,
+    HP: 255,
+    'Sp. Attack': 173,
+    'Sp. Defense': 230,
+    Speed: 160,
+  };
 }

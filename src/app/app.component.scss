@@ -1,0 +1,18 @@
+.content {
+  flex: 1;
+  width: 100%;
+  position: fixed;
+  margin-top: 28px;
+  height: 100vh;
+}
+
+.content > .left-box {
+  overflow: auto !important;
+  margin-bottom: 65px;
+}
+
+.content > .right-box {
+  place-self: center;
+  text-align: -webkit-center;
+  margin-bottom: 65px;
+}

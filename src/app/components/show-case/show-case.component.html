@@ -1,0 +1,37 @@
+<div style="justify-items: center; display: table-caption">
+  <h2>No. {{ pokemon.id.toString().padStart(3, "0") }}</h2>
+
+  <img
+    [id]="pokemon.id"
+    width="400"
+    height="400"
+    [src]="'http://localhost:3000' + pokemon.images.hires"
+    [alt]="pokemon.name.english"
+    [title]="pokemon.name.english"
+  />
+  <ng-container *ngFor="let type of pokemon.type">
+    <ef-pill style="margin-top: 15px" disabled>{{ type }}</ef-pill>
+  </ng-container>
+  <h1 style="margin-top: 15px; margin-bottom: 5px">
+    {{ pokemon.name.english }}
+  </h1>
+
+  <ef-pill style="margin-bottom: 25px"
+    >Height: {{ pokemon.profile.height }}</ef-pill
+  >
+  <ef-pill style="margin-bottom: 25px"
+    >Weight: {{ pokemon.profile.weight }}</ef-pill
+  >
+
+  <ng-container *ngFor="let base of pokemon.base | keyvalue">
+    <div style="text-align: start">
+      {{ base.key }}
+      <ef-slider
+        readonly
+        [value]="base.value"
+        [max]="maxBase[base.key]"
+        show-input-field
+      ></ef-slider>
+    </div>
+  </ng-container>
+</div>

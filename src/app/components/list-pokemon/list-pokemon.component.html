@@ -1,0 +1,15 @@
+<div
+  style="display: grid; justify-items: center; margin: 10px 5px 20px 5px; border: 1px solid black;"
+  *ngFor="let pokemon of listPokemons"
+>
+  <img
+    [id]="pokemon.id"
+    width="100"
+    height="100"
+    [src]="'http://localhost:3000' + pokemon.images.thumbnail"
+    [alt]="pokemon.name.english"
+    [title]="pokemon.name.english"
+    (click)="clickPokemon($event)"
+  />
+  <span style="margin-top: 15px;">{{ pokemon.name.english }}</span>
+</div>
